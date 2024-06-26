@@ -4,7 +4,7 @@
         mutations.forEach( ( mutation ) => {
             if ( mutation.type === "childList" ) {
                 mutation.addedNodes.forEach( ( addedNode ) => {
-                    if ( addedNode instanceof Element && addedNode.matches( 'ytd-rich-item-renderer' ) ) {
+                    if ( addedNode instanceof HTMLDivElement && addedNode.id === 'dismissible' ) {
                         // Only make change if the new element is a grid row
                         console.log( 'New grid row element added:', addedNode );
                         blockYoutubeVideos( addedNode, keywords );
