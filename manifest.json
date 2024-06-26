@@ -3,19 +3,21 @@
    "name": "Content Filter",
    "description": "Filters out unwanted content according to user input kewords.",
     "version": "0.1",
-    "action": {
-        "default_popup": "hi.html",
-        "default_icon": "assets/hi.png"
-    },
     "permissions": [
-        "activeTab"
+        "tabs",
+        "storage"
     ],
     "background": {
         "service_worker": "scripts/background.js"
     },
     "content_scripts": [
         {
-            
+            "matches": ["*://www.youtube.com/*"],
+            "js": ["scripts/content.js"]
         }
-    ]
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "assets/hi.png"
+    }
 }
